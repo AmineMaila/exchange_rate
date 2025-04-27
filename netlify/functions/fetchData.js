@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export default (event, context) => {
-  const API_KEY = process.env.API_KEY;
+export const handler = (event) => {
+  const API_KEY = process.env.EXCHANGE_API_KEY;
   const { query } = event.queryStringParameters || {};
 
 	if (!query) {
@@ -27,6 +27,10 @@ export default (event, context) => {
 
 			return {
 				statusCode: statusCode,
+				headers: {
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": "*"
+				},
 				body: JSON.stringify({ error: errorMsg }),
 			}
 		})
