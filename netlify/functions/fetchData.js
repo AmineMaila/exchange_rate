@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 export const handler = (event) => {
   const API_KEY = process.env.EXCHANGE_API_KEY;
